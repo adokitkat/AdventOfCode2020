@@ -3,12 +3,10 @@ import strutils, re
 const input = block:
   var result : seq[string]
   for line in staticRead("input.txt").splitLines:
-    if line != "":
-       result.add line
+    if line != "": result.add line
   result
 
 let regex = re"(\d+)-(\d+) (\w): (\w+)" 
-
 var
   range_start, range_end, first, second : int
   character : char
@@ -18,14 +16,14 @@ var
 
 for line in input:
   if line =~ regex:
-    range_start = matches[0].parseInt
-    range_end = matches[1].parseInt
-    
-    first = range_start - 1
-    second = range_end - 1
-
     character = matches[2][0]
     password = matches[3]
+    # Range of allowed character cound for part one
+    range_start = matches[0].parseInt
+    range_end = matches[1].parseInt
+    # Indexes for the second part
+    first = range_start - 1
+    second = range_end - 1
   
   if password.count(character) in range_start..range_end:
     inc valid_counter1
@@ -35,7 +33,6 @@ for line in input:
   elif password[second] == character and password[first] != character:
     inc valid_counter2
 
-echo "Part one:"
-echo valid_counter1
-echo "\nPart two:"
-echo valid_counter2
+# Print results
+echo "Part one: ", valid_counter1
+echo "\nPart two: ", valid_counter2
