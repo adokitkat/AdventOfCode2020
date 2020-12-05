@@ -1,6 +1,6 @@
 import strutils, sequtils, re
 
-const input_dirty : seq[string] = slurp("o.txt").split("\n\n")
+const input_dirty : seq[string] = slurp("input.txt").split("\n\n")
 let input = block:
   var result: seq[string]
   for l in input_dirty:
