@@ -21,7 +21,7 @@ var
 for line in input:
   if line =~ r1 and line =~ r2 and line =~ r3 and line =~ r4 and line =~ r5 and line =~ r6 and line =~ r7:
     inc count
-echo count
+echo "Part one ": count
 
 # Part two
 count = 0
@@ -37,4 +37,4 @@ for line in input:
   if line =~ r1 and line =~ r2 and line =~ r3 and line =~ r4 and line =~ r5 and line =~ r6 and line =~ r7:
     inc count
     echo line
-echo count
+echo "Part two: ", count
